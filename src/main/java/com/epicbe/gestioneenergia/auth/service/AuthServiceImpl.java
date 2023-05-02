@@ -11,15 +11,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.spring_security_project.auth.entity.ERole;
-import com.spring_security_project.auth.entity.Role;
-import com.spring_security_project.auth.entity.User;
-import com.spring_security_project.auth.exception.MyAPIException;
-import com.spring_security_project.auth.payload.LoginDto;
-import com.spring_security_project.auth.payload.RegisterDto;
-import com.spring_security_project.auth.repository.RoleRepository;
-import com.spring_security_project.auth.repository.UserRepository;
-import com.spring_security_project.auth.security.JwtTokenProvider;
+import com.epicbe.gestioneenergia.auth.entity.ERole;
+import com.epicbe.gestioneenergia.auth.entity.Role;
+import com.epicbe.gestioneenergia.auth.entity.User;
+import com.epicbe.gestioneenergia.auth.exception.MyAPIException;
+import com.epicbe.gestioneenergia.auth.payload.LoginDto;
+import com.epicbe.gestioneenergia.auth.payload.RegisterDto;
+import com.epicbe.gestioneenergia.auth.repository.RoleRepository;
+import com.epicbe.gestioneenergia.auth.repository.UserRepository;
+import com.epicbe.gestioneenergia.auth.security.JwtTokenProvider;
 
 @Service
 public class AuthServiceImpl implements AuthService {

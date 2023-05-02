@@ -11,11 +11,11 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.spring_security_project.auth.entity.ERole;
-import com.spring_security_project.auth.entity.Role;
-import com.spring_security_project.auth.repository.RoleRepository;
-import com.spring_security_project.auth.repository.UserRepository;
-import com.spring_security_project.auth.service.AuthService;
+import com.epicbe.gestioneenergia.auth.entity.ERole;
+import com.epicbe.gestioneenergia.auth.entity.Role;
+import com.epicbe.gestioneenergia.auth.repository.RoleRepository;
+import com.epicbe.gestioneenergia.auth.repository.UserRepository;
+import com.epicbe.gestioneenergia.auth.service.AuthService;
 
 
 @Component

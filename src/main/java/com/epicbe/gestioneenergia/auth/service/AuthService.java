@@ -1,7 +1,7 @@
 package com.epicbe.gestioneenergia.auth.service;
 
-import com.spring_security_project.auth.payload.LoginDto;
-import com.spring_security_project.auth.payload.RegisterDto;
+import com.epicbe.gestioneenergia.auth.payload.LoginDto;
+import com.epicbe.gestioneenergia.auth.payload.RegisterDto;
 
 public interface AuthService {
     

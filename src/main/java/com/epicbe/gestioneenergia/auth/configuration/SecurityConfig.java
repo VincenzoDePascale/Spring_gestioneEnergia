@@ -19,8 +19,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.spring_security_project.auth.security.JwtAuthenticationEntryPoint;
-import com.spring_security_project.auth.security.JwtAuthenticationFilter;
+import com.epicbe.gestioneenergia.auth.security.JwtAuthenticationEntryPoint;
+import com.epicbe.gestioneenergia.auth.security.JwtAuthenticationFilter;
 
 
 @Configuration

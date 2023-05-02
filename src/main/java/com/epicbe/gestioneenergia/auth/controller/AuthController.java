@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring_security_project.auth.payload.JWTAuthResponse;
-import com.spring_security_project.auth.payload.LoginDto;
-import com.spring_security_project.auth.payload.RegisterDto;
-import com.spring_security_project.auth.service.AuthService;
-
+import com.epicbe.gestioneenergia.auth.payload.JWTAuthResponse;
+import com.epicbe.gestioneenergia.auth.payload.LoginDto;
+import com.epicbe.gestioneenergia.auth.payload.RegisterDto;
+import com.epicbe.gestioneenergia.auth.service.AuthService;
 
 @RestController
 @RequestMapping("/api/auth")

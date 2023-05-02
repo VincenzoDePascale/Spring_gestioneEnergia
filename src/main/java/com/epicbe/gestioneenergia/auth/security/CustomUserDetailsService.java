@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.spring_security_project.auth.entity.User;
-import com.spring_security_project.auth.repository.UserRepository;
+import com.epicbe.gestioneenergia.auth.entity.User;
+import com.epicbe.gestioneenergia.auth.repository.UserRepository;
 
 import java.util.Set;
 import java.util.stream.Collectors;

@@ -2,7 +2,7 @@ package com.epicbe.gestioneenergia.auth.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.spring_security_project.auth.entity.User;
+import com.epicbe.gestioneenergia.auth.entity.User;
 
 import java.util.Optional;
 
