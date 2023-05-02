@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CSVHelper {
 	public static String TYPE = "text/csv";
-	// static String[] HEADERs = { "idProv", "idCom", "comune", "provincia" };
 
 	public static boolean hasCSVFormat(MultipartFile file) {
 
@@ -31,35 +30,30 @@ public class CSVHelper {
 		return true;
 	}
 
-	public static List<Comune> csvToTutorials(MultipartFile file) {
+	public static List<Comune> csvToComuni(MultipartFile file) {
 		try {
-			InputStream is = file.getInputStream();
-			BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-			CSVParser csvParser = new CSVParser(fileReader, CSVFormat.EXCEL.withFirstRecordAsHeader());
+			CSVParser csvParser = CSVParser.parse(file.getInputStream(), Charset.forName("UTF-8"), CSVFormat.DEFAULT.withFirstRecordAsHeader().withDelimiter(';'));
 
 			List<Comune> comuni = new ArrayList<Comune>();
 
 			Iterable<CSVRecord> csvRecords = csvParser.getRecords();
-			
-			log.info(csvRecords.toString());
+				csvParser.close();
 
-			for (CSVRecord csvRecord : csvRecords) {
-
-				Long idProv = Long.parseLong(csvRecord.get("idProv"));
-	    	Long idCom = Long.parseLong(csvRecord.get("idCom"));
+			csvRecords.forEach(csvRecord -> {
+				log.info(csvRecord.toString());
+				//String idProv = csvRecord.get("idProv");
+				//Long idCom = Long.parseLong(csvRecord.get("idCom"));
+				//log.info(idProv);
 				String comune = csvRecord.get("comune");
 				String provincia = csvRecord.get("provincia");
+				Comune c = new Comune(123l, comune, provincia);
 
-				Comune c = Comune.builder()
-	    			.codiceComune(idCom)
-						.codiceProvincia(idProv).nome(comune).provincia(provincia).build();
-
-				log.info("Ho un comune!!");
 				comuni.add(c);
-			}
+			});
 
-			csvParser.close();
+			log.info(comuni.size() + "");
 			return comuni;
+			
 		} catch (IOException e) {
 			throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
 		}

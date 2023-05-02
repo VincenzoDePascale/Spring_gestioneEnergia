@@ -31,6 +31,12 @@ public class Comune {
 	
 	@Column(nullable = false)
 	private String provincia;
-	
+
+	public Comune(Long codiceProvincia, String nome, String provincia) {
+		super();
+		this.codiceProvincia = codiceProvincia;
+		this.nome = nome;
+		this.provincia = provincia;
+	}
 	
 }
