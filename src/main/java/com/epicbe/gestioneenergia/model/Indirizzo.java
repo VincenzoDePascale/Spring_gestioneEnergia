@@ -36,7 +36,8 @@ public class Indirizzo {
 	@Column(nullable = false)
 	private String civico;
 	
-	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "comune_id", nullable = false)
 	private Comune comune;
 	
 	@Column(nullable = false)

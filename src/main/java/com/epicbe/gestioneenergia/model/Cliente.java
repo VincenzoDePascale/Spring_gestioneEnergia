@@ -50,10 +50,10 @@ public class Cliente {
 	private String cognomeContatto;
 	private String telefonoContatto;
 	
-	@OneToMany/*(mappedBy = "id_indirizzo")*/
+	@OneToMany
 	private List<Indirizzo> indirizzi;
 	
-	@OneToMany/*(mappedBy = "id_fattura")*/
+	@OneToMany
 	private List<Fattura> fatture;
 	
 }

@@ -1,7 +1,5 @@
 package com.epicbe.gestioneenergia.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +25,5 @@ public class Comune {
 	
 	@Column(nullable = false)
 	private String nome;
-//	private Provincia provincia;
 	
 }
