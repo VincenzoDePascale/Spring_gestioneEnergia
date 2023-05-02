@@ -1,0 +1,8 @@
+# Dati accesso al DB gestioneenergia
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/gestioneenergia
+spring.datasource.username=postgres
+spring.datasource.password=root
+
+# 'create', 'create-drop', 'create-only', 'drop', 'update', 'none', 'validate'
+spring.jpa.hibernate.ddl-auto= update
