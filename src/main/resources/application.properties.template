@@ -6,3 +6,6 @@ spring.datasource.password=root
 
 # 'create', 'create-drop', 'create-only', 'drop', 'update', 'none', 'validate'
 spring.jpa.hibernate.ddl-auto= update
+
+app.jwt-secret=nd9uvfn48fne098vn8g0env00g9ng90n09905g
+app.jwt-expiration-milliseconds=360000
