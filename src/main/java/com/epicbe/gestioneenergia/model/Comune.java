@@ -21,9 +21,16 @@ public class Comune {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long codiceComune;
+	
+	@Column(nullable = false)
+	private Long codiceProvincia;
 	
 	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
+	private String provincia;
+	
 	
 }
