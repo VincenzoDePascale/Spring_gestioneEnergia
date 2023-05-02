@@ -14,17 +14,17 @@ import com.github.javafaker.Faker;
 
 @Configuration
 public class ClienteConfiguration {
-	@Bean("PACliente")
+	@Bean("ClienteRandom")
 	@Scope("prototype")
-	public Cliente PacCliente(LocalDate data, LocalDate dataUltimo) {
+	public Cliente clienteRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));
 		return Cliente.builder()
 				.ragioneSociale(fake.company().bs())
-				.tipoCliente(ECliente.PA)
+				.tipoCliente(ECliente.eClienteRandom())
 				.partitaIva((long) fake.number().numberBetween(11, 11))
 				.email(fake.internet().emailAddress())
-				.inserimento(data)
-				.ultimoContatto(dataUltimo)
+				.inserimento(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
+				.ultimoContatto(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.pec(fake.internet().emailAddress())
 				.telefono(fake.phoneNumber().phoneNumber())
 				.emailContatto(fake.internet().emailAddress().toUpperCase())
@@ -35,63 +35,4 @@ public class ClienteConfiguration {
 	}
 	
 	
-	@Bean("SASCliente")
-	@Scope("prototype")
-	public Cliente SASCliente(LocalDate data, LocalDate dataUltimo) {
-		Faker fake = new Faker(new Locale("it-IT"));
-		return Cliente.builder()
-				.ragioneSociale(fake.company().bs())
-				.tipoCliente(ECliente.SAS)
-				.partitaIva((long) fake.number().numberBetween(11, 11))
-				.email(fake.internet().emailAddress())
-				.inserimento(data)
-				.ultimoContatto(dataUltimo)
-				.pec(fake.internet().emailAddress())
-				.telefono(fake.phoneNumber().phoneNumber())
-				.emailContatto(fake.internet().emailAddress().toUpperCase())
-				.nomeContatto(fake.name().firstName())
-				.cognomeContatto(fake.name().lastName())
-				.telefonoContatto(fake.phoneNumber().phoneNumber())
-				.build();
-	}
-	
-	@Bean("SPACliente")
-	@Scope("prototype")
-	public Cliente SPASCliente(LocalDate data, LocalDate dataUltimo) {
-		Faker fake = new Faker(new Locale("it-IT"));
-		return Cliente.builder()
-				.ragioneSociale(fake.company().bs())
-				.tipoCliente(ECliente.SPA)
-				.partitaIva((long) fake.number().numberBetween(11, 11))
-				.email(fake.internet().emailAddress())
-				.inserimento(data)
-				.ultimoContatto(dataUltimo)
-				.pec(fake.internet().emailAddress())
-				.telefono(fake.phoneNumber().phoneNumber())
-				.emailContatto(fake.internet().emailAddress().toUpperCase())
-				.nomeContatto(fake.name().firstName())
-				.cognomeContatto(fake.name().lastName())
-				.telefonoContatto(fake.phoneNumber().phoneNumber())
-				.build();
-	}
-	
-	@Bean("SRLCliente")
-	@Scope("prototype")
-	public Cliente SRLCliente(LocalDate data, LocalDate dataUltimo) {
-		Faker fake = new Faker(new Locale("it-IT"));
-		return Cliente.builder()
-				.ragioneSociale(fake.company().bs())
-				.tipoCliente(ECliente.SRL)
-				.partitaIva((long) fake.number().numberBetween(11, 11))
-				.email(fake.internet().emailAddress())
-				.inserimento(data)
-				.ultimoContatto(dataUltimo)
-				.pec(fake.internet().emailAddress())
-				.telefono(fake.phoneNumber().phoneNumber())
-				.emailContatto(fake.internet().emailAddress().toUpperCase())
-				.nomeContatto(fake.name().firstName())
-				.cognomeContatto(fake.name().lastName())
-				.telefonoContatto(fake.phoneNumber().phoneNumber())
-				.build();
-	}
 }
