@@ -33,21 +33,21 @@ public class FatturaService {
 		return repo.findById(id).get();
 	}
 	public Fattura getFatturaPerNumero(Integer numero) {
-		if(!repo.existByNumero(numero)) {
+		if(!repo.existsByNumero(numero)) {
 			throw new EntityNotFoundException("Questa fattura non esiste!");
 		}
 		return repo.findByNumero(numero);
 	}
 	
 	public Fattura getFatturaPerAnno(Integer anno) {
-		if(!repo.existByAnno(anno)) {
+		if(!repo.existsByAnno(anno)) {
 			throw new EntityNotFoundException("Non esistono fatture per questo anno!");
 		}
 		return repo.findByAnno(anno);
 	}
 	
 	public Fattura creaFattura(Fattura fattura) {
-		if(!repo.existByNumero(fattura.getNumero())) {
+		if(!repo.existsByNumero(fattura.getNumero())) {
 			throw new EntityExistsException("La fattura con " + fattura.getNumero() + " è già stata creata!");
 		} else {
 		repo.save(fattura);
