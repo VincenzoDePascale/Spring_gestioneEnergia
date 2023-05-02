@@ -1,6 +1,6 @@
 package com.epicbe.gestioneenergia.model;
 
-import java.time.LocalDate;
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
