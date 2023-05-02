@@ -1,6 +1,5 @@
 package com.epicbe.gestioneenergia.service;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,9 @@ public class CSVService {
 
   public void save(MultipartFile file) {
     try {
-      List<Comune> comuni = CSVHelper.csvToTutorials(file.getInputStream());
+      List<Comune> comuni = CSVHelper.csvToComuni(file);
       repository.saveAll(comuni);
-    } catch (IOException e) {
+    } catch (Exception e) {
       throw new RuntimeException("fail to store csv data: " + e.getMessage());
     }
   }
