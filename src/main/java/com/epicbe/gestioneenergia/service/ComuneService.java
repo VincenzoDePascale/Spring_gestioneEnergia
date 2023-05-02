@@ -1,6 +1,7 @@
 package com.epicbe.gestioneenergia.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,18 +19,36 @@ public class ComuneService {
 	
 	public List<Comune> getAllComuni() {
 		return (List<Comune>) comuneRepo.findAll();
+	}	
+	
+	public Page<Comune> getAllComuni(Pageable pageable) {
+		return (Page<Comune>) comuneRepo.findAll(pageable);
 	}
+	
 	
 	public List<Comune> findByCodProvincia(Long codiceProvincia){
 		return (List<Comune>) comuneRepo.findByCodProvincia(codiceProvincia);
+	}	
+	
+	public Page<Comune> findByCodProvincia(Long codiceProvincia, Pageable pageable) {
+		return (Page<Comune>) comuneRepo.findByCodProvincia(codiceProvincia, pageable);
 	}
 	
 	public Comune findByNome(String nome) {
-		return (Comune) comuneRepo.findByNome(nome);
+		return comuneRepo.findByNome(nome);
 	}
 	
-	public Page<Comune> getAllComuniPageable(Pageable pageable) {
-		return (Page<Comune>) comuneRepo.findAll(pageable);
+	public Page<Comune> findByName(String nome, Pageable pageable) {
+		return (Page<Comune>) comuneRepo.findByNome(nome, pageable);
+	}
+	
+
+	public Optional<Comune> getByCodiceComune(Long codiceComune) {
+		return comuneRepo.findById(codiceComune);
+	}
+	
+	public List<Comune> findByProvincia(String provincia) {
+		return comuneRepo.findByPovincia(provincia);
 	}
 
 }
