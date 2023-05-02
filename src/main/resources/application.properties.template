@@ -7,5 +7,9 @@ spring.datasource.password=root
 # 'create', 'create-drop', 'create-only', 'drop', 'update', 'none', 'validate'
 spring.jpa.hibernate.ddl-auto= update
 
-app.jwt-secret=nd9uvfn48fne098vn8g0env00g9ng90n09905g
+app.jwt-secret=nd9uvfn48fne098vn8g0env00g9ng90n09905gks8z4f7v65o9a84v5btl9v4t8c
 app.jwt-expiration-milliseconds=360000
+
+# max csv size
+spring.servlet.multipart.max-file-size=2MB
+spring.servlet.multipart.max-request-size=2MB
