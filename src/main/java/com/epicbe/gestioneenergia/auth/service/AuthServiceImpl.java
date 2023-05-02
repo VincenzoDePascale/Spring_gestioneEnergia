@@ -101,7 +101,6 @@ public class AuthServiceImpl implements AuthService {
     
     public ERole getRole(String role) {
     	if(role.equals("ROLE_ADMIN")) return ERole.ROLE_ADMIN;
-    	else if(role.equals("ROLE_MODERATOR")) return ERole.ROLE_MODERATOR;
     	else return ERole.ROLE_USER;
     }
     
