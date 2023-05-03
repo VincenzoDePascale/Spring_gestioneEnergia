@@ -40,18 +40,19 @@ public class CSVHelper {
 				csvParser.close();
 
 			csvRecords.forEach(csvRecord -> {
-				log.info(csvRecord.toString());
-				//String idProv = csvRecord.get("idProv");
-				//Long idCom = Long.parseLong(csvRecord.get("idCom"));
-				//log.info(idProv);
+				Long idProv = 0l;
+				if (csvRecord.isSet("idProv")) {					
+					idProv = Long.parseLong(csvRecord.get("idProv"));
+				}
+				Long idCom = Long.parseLong(csvRecord.get("idCom"));
 				String comune = csvRecord.get("comune");
 				String provincia = csvRecord.get("provincia");
-				Comune c = new Comune(123l, comune, provincia);
+				Comune c = new Comune(idCom, idProv, comune, provincia);
 
 				comuni.add(c);
 			});
 
-			log.info(comuni.size() + "");
+			log.info(comuni.size() + " comuni elaborati");
 			return comuni;
 			
 		} catch (IOException e) {

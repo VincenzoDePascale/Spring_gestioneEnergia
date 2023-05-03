@@ -10,7 +10,10 @@ import com.epicbe.gestioneenergia.helper.CSVHelper;
 import com.epicbe.gestioneenergia.model.Comune;
 import com.epicbe.gestioneenergia.repository.ComuneRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CSVService {
 	
   @Autowired ComuneRepository repository;
@@ -19,6 +22,7 @@ public class CSVService {
     try {
       List<Comune> comuni = CSVHelper.csvToComuni(file);
       repository.saveAll(comuni);
+      log.info("Aggiornati i comuni sul DB da CSV import");
     } catch (Exception e) {
       throw new RuntimeException("fail to store csv data: " + e.getMessage());
     }
