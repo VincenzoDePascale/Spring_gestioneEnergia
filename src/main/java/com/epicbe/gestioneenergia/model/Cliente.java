@@ -27,7 +27,7 @@ public class Cliente {
 	@Enumerated(EnumType.STRING)
 	private ECliente tipoCliente;
 	
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true, length = 11)
 	private String partitaIva;
 	
 	@Column(nullable = false, unique = true)
@@ -44,8 +44,7 @@ public class Cliente {
 	private String telefono;
 	
 	@Column(nullable = false)
-	private String emailContatto;
-	
+	private String emailContatto;	
 	private String nomeContatto;
 	private String cognomeContatto;
 	private String telefonoContatto;
