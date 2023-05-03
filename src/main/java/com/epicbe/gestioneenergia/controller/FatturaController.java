@@ -32,11 +32,11 @@ public class FatturaController {
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Fattura>>(service.getAllFatture(), HttpStatus.OK);
 	}
-	@GetMapping("/fatture/{numero}")
+	@GetMapping("/fatture/numero/{numero}")
 	public ResponseEntity<?> getFatturePerNumero(@PathVariable Integer numero){
 		return new ResponseEntity<Fattura>(service.getFatturaPerNumero(numero), HttpStatus.OK);
 	}
-	@GetMapping("/fatture/{anno}")
+	@GetMapping("/fatture/anno/{anno}")
 	public ResponseEntity<?> getFatturePerAnno(@PathVariable Integer anno){
 		return new ResponseEntity<Fattura>(service.getFatturaPerAnno(anno), HttpStatus.OK);
 	}
@@ -50,11 +50,11 @@ public class FatturaController {
 	public ResponseEntity<?> createFattura(@RequestBody Fattura fattura) {
 		return new ResponseEntity<Fattura>(service.creaFattura(fattura), HttpStatus.CREATED);
 	}
-	@DeleteMapping("fatture/{id}")
+	@DeleteMapping("/fatture/{id}")
 	public ResponseEntity<String> deleteFattura(@PathVariable Long id){
 		return new ResponseEntity<String>(service.removeFattura(id), HttpStatus.OK);
 	}
-	@PutMapping("fatture/{id}")
+	@PutMapping("/fatture")
 	public ResponseEntity<?> updateUser(@RequestBody Fattura fattura) {
 		return new ResponseEntity<Fattura>(service.updateFattura(fattura), HttpStatus.CREATED);
 	}
