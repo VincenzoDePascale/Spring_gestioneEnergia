@@ -28,7 +28,7 @@ public class Cliente {
 	private ECliente tipoCliente;
 	
 	@Column(nullable = false, unique = true, length = 11)
-	private Long partitaIva;
+	private String partitaIva;
 	
 	@Column(nullable = false, unique = true)
 	private String email;

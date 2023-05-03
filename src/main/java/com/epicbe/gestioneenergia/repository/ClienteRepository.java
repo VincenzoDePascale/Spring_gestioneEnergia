@@ -10,12 +10,14 @@ import com.epicbe.gestioneenergia.model.Cliente;
 
 
 public interface ClienteRepository extends CrudRepository<Cliente, Long>, PagingAndSortingRepository<Cliente, Long> {
-
-	public List <Cliente> findByFatturatoAnnuo(Double fatturatAnnuale);
 	
-	public List <Cliente> findByDataInserimento(LocalDate dataInserimento);
+	public boolean existsByEmail(String email);
 	
-	public List <Cliente> findByDataUltimo(LocalDate dataInserimento);
+//	public List <Cliente> findByFatturatoAnnuo(Double fatturatAnnuale);
+//	
+//	public List <Cliente> findByDataInserimento(LocalDate dataInserimento);
+//	
+//	public List <Cliente> findByDataUltimo(LocalDate dataInserimento);
 	
 	//public List <Cliente> findByName(String name);
 	

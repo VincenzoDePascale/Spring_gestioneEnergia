@@ -21,18 +21,19 @@ public class ClienteConfiguration {
 		return Cliente.builder()
 				.ragioneSociale(fake.company().bs())
 				.tipoCliente(ECliente.eClienteRandom())
-				.partitaIva((long) fake.number().numberBetween(11, 11))
+				.partitaIva("IT" + fake.number().numberBetween(1111111111, 999999999))
 				.email(fake.internet().emailAddress())
 				.inserimento(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.ultimoContatto(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.pec(fake.internet().emailAddress())
 				.telefono(fake.phoneNumber().phoneNumber())
-				.emailContatto(fake.internet().emailAddress().toUpperCase())
+				.emailContatto(fake.internet().emailAddress())
 				.nomeContatto(fake.name().firstName())
 				.cognomeContatto(fake.name().lastName())
 				.telefonoContatto(fake.phoneNumber().phoneNumber())
 				.build();
 	}
+	
 	
 	
 }

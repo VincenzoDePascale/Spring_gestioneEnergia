@@ -1,8 +1,14 @@
 package com.epicbe.gestioneenergia.auth.exception;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
-public class MyAPIException extends RuntimeException {
+import jakarta.persistence.EntityExistsException;
+
+
+public class MyAPIException extends RuntimeException  {
 	
 	private HttpStatus status;
     private String message;
@@ -26,5 +32,6 @@ public class MyAPIException extends RuntimeException {
     public String getMessage() {
         return message;
     }
+    
 
 }
