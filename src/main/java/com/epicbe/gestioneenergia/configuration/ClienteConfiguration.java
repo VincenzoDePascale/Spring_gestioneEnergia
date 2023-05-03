@@ -24,7 +24,7 @@ public class ClienteConfiguration {
 				.partitaIva("IT" + fake.number().numberBetween(1111111111, 999999999))
 				.email(fake.internet().emailAddress())
 				.inserimento(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
-				.ultimoContatto(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
+				.ultimocontatto(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.pec(fake.internet().emailAddress())
 				.telefono(fake.phoneNumber().phoneNumber())
 				.emailContatto(fake.internet().emailAddress())

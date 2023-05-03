@@ -35,7 +35,7 @@ public class Cliente {
 	
 	private LocalDate inserimento;
 	
-	private LocalDate ultimoContatto;
+	private LocalDate ultimocontatto;
 	
 	@Column(nullable = false, unique = true)
 	private String pec;
