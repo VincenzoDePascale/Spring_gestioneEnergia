@@ -22,6 +22,6 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long>, Paging
 	
 	//public List <Cliente> findByName(String name);
 	
-//	@Query(value = " SELECT c FROM Cliente c WHERE LOWER(c.name) LIKE (% || LOWER(:name) || %)")
-//	public List <Cliente> searchByPartName(String name);
+	@Query("SELECT c FROM Cliente c WHERE LOWER(c.nomeContatto) LIKE LOWER('%' || :name || '%')")
+	public List<Cliente> searchByPartName(String name);
 }
