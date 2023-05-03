@@ -12,11 +12,11 @@ import com.epicbe.gestioneenergia.model.Comune;
 public interface ComuneRepository 
 extends CrudRepository<Comune, Long>, PagingAndSortingRepository<Comune, Long> {
 
-	Page<Comune> findByCodProvincia(Long codiceProvincia, Pageable pageable);
+	Page<Comune> findByCodiceProvincia(Long codiceProvincia, Pageable pageable);
 	Page<Comune> findByNome(String nome, Pageable pageable);
 	Page<Comune> findByProvincia(String provincia, Pageable pageable);
-	List<Comune> findByCodProvincia(Long codiceProvincia);
+	List<Comune> findByCodiceProvincia(Long codiceProvincia);
 	Comune findByNome(String nome);
-	List<Comune> findByPovincia(String provincia);
+	List<Comune> findByProvincia(String provincia);
 
 }

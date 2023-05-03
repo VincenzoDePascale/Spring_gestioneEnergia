@@ -26,12 +26,12 @@ public class ComuneService {
 	}
 	
 	
-	public List<Comune> findByCodProvincia(Long codiceProvincia){
-		return (List<Comune>) comuneRepo.findByCodProvincia(codiceProvincia);
+	public List<Comune> findByCodiceProvincia(Long codiceProvincia){
+		return (List<Comune>) comuneRepo.findByCodiceProvincia(codiceProvincia);
 	}	
 	
-	public Page<Comune> findByCodProvincia(Long codiceProvincia, Pageable pageable) {
-		return (Page<Comune>) comuneRepo.findByCodProvincia(codiceProvincia, pageable);
+	public Page<Comune> findByCodiceProvincia(Long codiceProvincia, Pageable pageable) {
+		return (Page<Comune>) comuneRepo.findByCodiceProvincia(codiceProvincia, pageable);
 	}
 	
 	public Comune findByNome(String nome) {
@@ -48,7 +48,7 @@ public class ComuneService {
 	}
 	
 	public List<Comune> findByProvincia(String provincia) {
-		return comuneRepo.findByPovincia(provincia);
+		return comuneRepo.findByProvincia(provincia);
 	}
 
 }
