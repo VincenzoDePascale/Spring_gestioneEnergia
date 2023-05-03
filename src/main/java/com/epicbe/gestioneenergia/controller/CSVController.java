@@ -14,9 +14,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.epicbe.gestioneenergia.helper.CSVHelper;
 import com.epicbe.gestioneenergia.service.CSVService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @CrossOrigin("http://localhost:8081")
 @Controller
 @RequestMapping("/api/csv")
+@Slf4j
 public class CSVController {
 
   @Autowired
