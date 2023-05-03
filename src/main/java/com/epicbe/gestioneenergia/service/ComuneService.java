@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.epicbe.gestioneenergia.model.Comune;
@@ -49,6 +50,11 @@ public class ComuneService {
 	
 	public List<Comune> findByProvincia(String provincia) {
 		return comuneRepo.findByProvincia(provincia);
+	}
+	
+	public Comune saveComune(Comune c) {
+		comuneRepo.save(c);
+		return c;
 	}
 
 }

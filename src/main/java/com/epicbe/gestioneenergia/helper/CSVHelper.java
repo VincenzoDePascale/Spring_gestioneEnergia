@@ -19,6 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class CSVHelper {
+
+	static Integer i = 0;
 	public static String TYPE = "text/csv";
 
 	public static boolean hasCSVFormat(MultipartFile file) {
@@ -32,29 +34,36 @@ public class CSVHelper {
 
 	public static List<Comune> csvToComuni(MultipartFile file) {
 		try {
-			CSVParser csvParser = CSVParser.parse(file.getInputStream(), Charset.forName("UTF-8"), CSVFormat.DEFAULT.withFirstRecordAsHeader().withDelimiter(';'));
+			CSVParser csvParser = CSVParser.parse(file.getInputStream(), Charset.forName("UTF-8"),
+					CSVFormat.DEFAULT.withIgnoreHeaderCase().withSkipHeaderRecord().withDelimiter(';'));
 
 			List<Comune> comuni = new ArrayList<Comune>();
 
 			Iterable<CSVRecord> csvRecords = csvParser.getRecords();
-				csvParser.close();
+			csvParser.close();
 
 			csvRecords.forEach(csvRecord -> {
-				Long idProv = 0l;
-				if (csvRecord.isSet("idProv")) {					
-					idProv = Long.parseLong(csvRecord.get("idProv"));
-				}
-				Long idCom = Long.parseLong(csvRecord.get("idCom"));
-				String comune = csvRecord.get("comune");
-				String provincia = csvRecord.get("provincia");
-				Comune c = new Comune(idCom, idProv, comune, provincia);
 
-				comuni.add(c);
+				Comune c = new Comune();
+
+				try {
+					Long idCom = Long.parseLong(csvRecord.get(1));
+					Long idProv = Long.parseLong(csvRecord.get(0));
+					c.setCodiceComune(idCom);
+					c.setCodiceProvincia(idProv);
+					String comune = csvRecord.get(2);
+					c.setNome(comune);
+					String provincia = csvRecord.get(3);
+					c.setProvincia(provincia);
+					comuni.add(c);
+				} catch (Exception e) {
+					log.error(e.toString());
+				}
 			});
 
 			log.info(comuni.size() + " comuni elaborati");
 			return comuni;
-			
+
 		} catch (IOException e) {
 			throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
 		}

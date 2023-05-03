@@ -21,6 +21,9 @@ public class Comune {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false)
 	private Long codiceComune;
 	
 	@Column(nullable = false)
@@ -37,6 +40,11 @@ public class Comune {
 		this.codiceProvincia = codiceProvincia;
 		this.nome = nome;
 		this.provincia = provincia;
+	}
+	
+	public Comune(Long codiceComune, Long codiceProvincia, String nome, String provincia) {
+		this(codiceProvincia, nome, provincia);
+		this.codiceComune = codiceComune;
 	}
 	
 }
