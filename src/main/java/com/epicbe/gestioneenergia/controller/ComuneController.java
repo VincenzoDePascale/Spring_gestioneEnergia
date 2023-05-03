@@ -20,27 +20,27 @@ public class ComuneController {
 	@Autowired
 	ComuneService service;
 	
-	@GetMapping("/comuni")
+	@GetMapping("/comuni/all")
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Comune>>(service.getAllComuni(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni/{codiceComune}")
+	@GetMapping("/comuni/id/{codiceComune}")
 	public ResponseEntity<?> getByCodiceComune(@PathVariable Long codiceComune) {
 		return new ResponseEntity<Comune>(HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni/{nome}")
+	@GetMapping("/comuni/nome/{nome}")
 	public ResponseEntity<?> getByNome(@PathVariable String nome) {
 		return new ResponseEntity<Comune>(service.findByNome(nome), HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni/{codiceProvincia}")
+	@GetMapping("/comuni/idprov/{codiceProvincia}")
 	public ResponseEntity<?> getByCodiceProvincia(@PathVariable Long codiceProvincia) {
-		return new ResponseEntity<List<Comune>>(service.findByCodProvincia(codiceProvincia), HttpStatus.OK);
+		return new ResponseEntity<List<Comune>>(service.findByCodiceProvincia(codiceProvincia), HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni/{codiceProvincia}")
+	@GetMapping("/comuni/prov/{codiceProvincia}")
 	public ResponseEntity<?> getByProvincia(@PathVariable String provincia) {
 		return new ResponseEntity<List<Comune>>(service.findByProvincia(provincia), HttpStatus.OK);
 	}
