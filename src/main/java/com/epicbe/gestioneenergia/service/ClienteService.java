@@ -66,6 +66,10 @@ public class ClienteService {
 		return repo.findById(id).get();
 	}
 	
+	public Cliente getClienteRandom() {
+		return repo.findByClienteRandom();
+	}
+	
 	public Cliente createCliente(Cliente Cliente) {
 		if(repo.existsByEmail(Cliente.getEmail())) {
 			throw new EntityExistsException("Partita iva exists!!!");

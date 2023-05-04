@@ -8,6 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.epicbe.gestioneenergia.model.Cliente;
+import com.epicbe.gestioneenergia.model.Comune;
 
 
 public interface ClienteRepository extends CrudRepository<Cliente, Long>, PagingAndSortingRepository<Cliente, Long> {
@@ -19,6 +20,9 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long>, Paging
 //	public List <Cliente> findByFatturatoAnnuo(Double fatturatAnnuale);
 	
 	public List <Cliente> findByInserimento(LocalDate dataInserimento);
+	
+	@Query(value="SELECT c FROM Cliente c ORDER BY RANDOM() LIMIT 1")
+	Cliente findByClienteRandom();
 	
 	public List <Cliente> findByUltimocontatto(LocalDate dataUltimo);
 	

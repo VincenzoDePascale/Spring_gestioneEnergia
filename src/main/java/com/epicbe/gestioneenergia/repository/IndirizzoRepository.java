@@ -1,6 +1,7 @@
 package com.epicbe.gestioneenergia.repository;
 
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -18,13 +19,6 @@ public interface IndirizzoRepository extends CrudRepository<Indirizzo, Long>, Pa
 	
 	public boolean existsByCivico(String civico);
 	public boolean existsById(Long id);
-	
-	
-	
-	 
-	
-	
-	
 	
 	
 	

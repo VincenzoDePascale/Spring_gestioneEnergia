@@ -3,10 +3,13 @@ package com.epicbe.gestioneenergia.service;
 import java.awt.print.Pageable;
 import java.util.List;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.model.Indirizzo;
 import com.epicbe.gestioneenergia.repository.IndirizzoRepository;
 
@@ -16,7 +19,7 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class IndirizzoService {
 
-	
+	@Autowired @Qualifier("FakeIndirizzo") private ObjectProvider <Indirizzo> randomIndirizzoProvider;
 	@Autowired IndirizzoRepository repo;
 
 
@@ -52,6 +55,12 @@ public class IndirizzoService {
 		}
 		repo.save(indirizzo);
 		return indirizzo;
+	}
+	
+	public Indirizzo createFakeIndirizzo() {
+		Indirizzo i = randomIndirizzoProvider.getObject();
+		repo.save(i);		
+		return i;
 	}
 	
 }

@@ -3,6 +3,8 @@ package com.epicbe.gestioneenergia.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -49,7 +51,8 @@ public class Cliente {
 	private String cognomeContatto;
 	private String telefonoContatto;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonIgnoreProperties({"cliente"})
 	private List<Indirizzo> indirizzi;
 	
 	@OneToMany

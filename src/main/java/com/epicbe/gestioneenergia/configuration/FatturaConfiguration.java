@@ -14,8 +14,8 @@ import com.epicbe.gestioneenergia.model.Fattura;
 public class FatturaConfiguration {
 	
 	
-	@Bean
-	@Scope("CreaFattura")
+	@Bean("CreaFattura")
+	@Scope("prototype")
 	public Fattura creaFattura(Integer num, Integer anno, Date data, BigDecimal importo, Cliente cliente ) {
 		return Fattura.builder()
 				.numero(num)
