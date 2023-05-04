@@ -22,7 +22,6 @@ public class IndirizzoConfiguration {
 	@Autowired ComuneRepository repoComune;
 	@Autowired ClienteRepository repoCliente;
 
-	
 	@Bean("CustomIndirizzoBean")
 	@Scope("prototype")
 	public Indirizzo newCustomIndirizzo() {
