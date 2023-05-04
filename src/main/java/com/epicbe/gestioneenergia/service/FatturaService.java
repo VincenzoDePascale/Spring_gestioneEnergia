@@ -82,7 +82,7 @@ public class FatturaService {
 		return fattura;
 	}
 	
-	   public List<Cliente> calcolaFatturatoAnnuo(int anno) {
+	   public List<Object> calcolaFatturatoAnnuo(int anno) {
 	        return repo.calcolaFatturatoAnnuo(anno);
 	    }
 
