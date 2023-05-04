@@ -1,7 +1,7 @@
 package com.epicbe.gestioneenergia.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -33,7 +33,7 @@ public class Fattura {
 	private Integer anno;
 	
 	@Column(nullable = false)
-	private Date data;
+	private LocalDate data;
 	
 	@Column(nullable = false)
 	private BigDecimal importo;
