@@ -9,7 +9,7 @@ public enum Stato {
 	 INCASSATA,
 	 DEPRECATA,
 	 PAGATA,
-	 NON_PAGATA,
+	 NON_PAGATA;
 	 
 	 public static Stato statoRandom() {
 			Faker fake = new Faker(new Locale("it-IT"));
