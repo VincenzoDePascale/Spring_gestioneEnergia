@@ -10,7 +10,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.epicbe.gestioneenergia.model.Cliente;
-import com.epicbe.gestioneenergia.model.Comune;
+
 
 
 public interface ClienteRepository extends CrudRepository<Cliente, Long>, PagingAndSortingRepository<Cliente, Long> {
@@ -18,11 +18,14 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long>, Paging
 	public boolean existsByEmail(String email);
 	public boolean existsByInserimento(LocalDate inserimento);
 	public boolean existsByUltimocontatto(LocalDate dataUltimo);
+	//non funziona
+//	@Query("SELECT c FROM Cliente c JOIN Fattura f ON c.id = f.cliente_id GROUP BY YEAR(f.data) = :anno")
+//    List<Cliente> filtraClientiPerFatturatoAnnua(
+//        @Param("anno") int anno
+//    );
 	
-	@Query("SELECT c FROM Cliente c JOIN Fattura f ON c.id = f.cliente_id GROUP BY YEAR(f.data) = :anno")
-    List<Cliente> filtraClientiPerFatturatoAnnua(
-        @Param("anno") int anno
-    );
+	@Query("SELECT c FROM Cliente c JOIN c.fatture f WHERE YEAR(f.data) = :anno GROUP BY c")
+	List<Cliente> filtraClientiPerFatturatoAnnuo(@Param("anno") int anno);
 	
 //	public List <Cliente> findByFatturatoAnnuo(BigDecimal fatturatoAnnuo);
 	

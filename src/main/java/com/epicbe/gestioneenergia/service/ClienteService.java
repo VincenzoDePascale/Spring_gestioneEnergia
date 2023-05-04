@@ -100,7 +100,7 @@ public class ClienteService {
 	}
 	
 	public List<Cliente> filtraClientePerFatturatoAnnuo( int anno) {
-		return repo.filtraClientiPerFatturatoAnnua(anno);
+		return repo.filtraClientiPerFatturatoAnnuo(anno);
 	}
 		
 }

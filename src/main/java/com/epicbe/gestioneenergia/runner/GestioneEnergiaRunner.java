@@ -64,9 +64,9 @@ public class GestioneEnergiaRunner implements ApplicationRunner {
 			clientService.createClienteRandom();
 		}
 		
-		/*for (int i = 0; i<30; i++) {
+		for (int i = 0; i<30; i++) {
 			indirizzoService.createFakeIndirizzo();			
-		}*/
+		}
 	
 		for (int i = 0; i<100; i++) {
 			fatturaService.creaFatturaFake();
