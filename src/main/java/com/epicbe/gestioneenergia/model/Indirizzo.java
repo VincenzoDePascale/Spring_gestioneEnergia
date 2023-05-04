@@ -3,6 +3,7 @@ package com.epicbe.gestioneenergia.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -44,6 +45,5 @@ public class Indirizzo {
 	private int cap;
 	
 	@ManyToOne
-	@JsonIgnoreProperties({"clienti"})
 	private Cliente cliente;
 }
