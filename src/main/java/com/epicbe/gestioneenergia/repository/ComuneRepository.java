@@ -16,6 +16,7 @@ extends CrudRepository<Comune, Long>, PagingAndSortingRepository<Comune, Long> {
 	Page<Comune> findByNome(String nome, Pageable pageable);
 	Page<Comune> findByProvincia(String provincia, Pageable pageable);
 	List<Comune> findByCodiceProvincia(Long codiceProvincia);
+	Comune findByCodiceComune(Long codiceComune);
 	Comune findByNome(String nome);
 	List<Comune> findByProvincia(String provincia);
 

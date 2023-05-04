@@ -20,12 +20,15 @@ public class ComuneService {
 	
 	public List<Comune> getAllComuni() {
 		return (List<Comune>) comuneRepo.findAll();
-	}	
+	}
 	
 	public Page<Comune> getAllComuni(Pageable pageable) {
 		return (Page<Comune>) comuneRepo.findAll(pageable);
 	}
 	
+	public Comune findById(Long id) {
+		return comuneRepo.findById(id).get();
+	}
 	
 	public List<Comune> findByCodiceProvincia(Long codiceProvincia){
 		return (List<Comune>) comuneRepo.findByCodiceProvincia(codiceProvincia);
@@ -44,8 +47,8 @@ public class ComuneService {
 	}
 	
 
-	public Optional<Comune> getByCodiceComune(Long codiceComune) {
-		return comuneRepo.findById(codiceComune);
+	public Comune getByCodiceComune(Long codiceComune) {
+		return comuneRepo.findByCodiceComune(codiceComune);
 	}
 	
 	public List<Comune> findByProvincia(String provincia) {
@@ -55,6 +58,16 @@ public class ComuneService {
 	public Comune saveComune(Comune c) {
 		comuneRepo.save(c);
 		return c;
+	}
+	
+	public String removeComune(Long id) {
+		comuneRepo.deleteById(id);
+		return "Comune eliminato correttamente";
+	}
+	
+	public Comune updateComune(Comune comune) {
+		comuneRepo.save(comune);
+		return comune;
 	}
 
 }
