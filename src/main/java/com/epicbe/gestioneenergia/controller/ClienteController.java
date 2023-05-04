@@ -39,7 +39,7 @@ public class ClienteController {
 	public ResponseEntity<?> getClientiPerUltimoInserimento(@PathVariable LocalDate data){
 		return new ResponseEntity<List<Cliente>>(service.getClientiPerUltimoContatto(data), HttpStatus.OK);
 	}
-//	@GetMapping("/clienti/fatturatoAnnuo/{fatturatoAnnuo}")
+//	@GetMapping("/clienti/fatturatoannuo/{fatturatoAnnuo}")
 //	public ResponseEntity<?> getclientiPerFatturatoAnno(@PathVariable double fatturatoAnnuo){
 //		return new ResponseEntity<List<Cliente>>(service.getClientePerFatturatoAnnuo(fatturatoAnnuo), HttpStatus.OK);
 //	}
