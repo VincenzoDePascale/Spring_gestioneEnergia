@@ -14,16 +14,18 @@ import com.epicbe.gestioneenergia.model.Comune;
 public interface ClienteRepository extends CrudRepository<Cliente, Long>, PagingAndSortingRepository<Cliente, Long> {
 	
 	public boolean existsByEmail(String email);
+	public boolean existsByInserimento(LocalDate inserimento);
+	public boolean existsByUltimocontatto(LocalDate dataUltimo);
 	
 //	public List <Cliente> findByFatturatoAnnuo(Double fatturatAnnuale);
-//	
-//	public List <Cliente> findByDataInserimento(LocalDate dataInserimento);
-//	
-//	public List <Cliente> findByDataUltimo(LocalDate dataInserimento);
 	
-	//public List <Cliente> findByName(String name);
+	public List <Cliente> findByInserimento(LocalDate dataInserimento);
 	
 	@Query(value="SELECT c FROM Cliente c ORDER BY RAND() LIMIT 1")
 	Cliente findByClienteRandom();
 	
+	public List <Cliente> findByUltimocontatto(LocalDate dataUltimo);
+	
+	@Query("SELECT c FROM Cliente c WHERE LOWER(c.nomeContatto) LIKE LOWER('%' || :name || '%')")
+	public List<Cliente> searchByPartName(String name);
 }
