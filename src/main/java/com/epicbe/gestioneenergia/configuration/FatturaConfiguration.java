@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.service.ClienteService;
 import com.epicbe.gestioneenergia.model.Fattura;
+import com.epicbe.gestioneenergia.model.Stato;
 import com.github.javafaker.Faker;
 
 @Configuration
@@ -23,13 +24,14 @@ public class FatturaConfiguration {
 	
 	@Bean("CreaFattura")
 	@Scope("prototype")
-	public Fattura creaFattura(Integer num, Integer anno, LocalDate data, BigDecimal importo, Cliente cliente ) {
+	public Fattura creaFattura(Integer num, Integer anno, LocalDate data, BigDecimal importo, Cliente cliente, Stato stato ) {
 		return Fattura.builder()
 				.numero(num)
 				.anno(anno)
 				.data(data)
 				.importo(importo)
 				.cliente(cliente)
+				.stato(stato)
 				.build();
 	}
 	
@@ -48,6 +50,7 @@ public class FatturaConfiguration {
 			.data(randomDate)
 			.importo(BigDecimal.valueOf(fake.number().randomDouble(2, 0, 1000)))
 			.cliente(clientService.getClienteRandom())
+			.stato(Stato.statoRandom())
 			.build();
 	
 	}
