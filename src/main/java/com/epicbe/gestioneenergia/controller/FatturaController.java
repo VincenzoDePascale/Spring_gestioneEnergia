@@ -61,8 +61,8 @@ public class FatturaController {
 	
 	@GetMapping("/stato/{stato}")	
 	@PreAuthorize("isAuthenticated()")
-	public ResponseEntity<?> getByStato(@PathVariable Stato stato){
-		return new ResponseEntity <List <Fattura>>(service.filtraPerStato(stato), HttpStatus.OK);
+	public ResponseEntity<?> getByStato(@PathVariable Stato stato, Pageable pageable){
+		return new ResponseEntity<>(service.filtraPerStato(stato, pageable), HttpStatus.OK);
 	}
 	
 	@PostMapping

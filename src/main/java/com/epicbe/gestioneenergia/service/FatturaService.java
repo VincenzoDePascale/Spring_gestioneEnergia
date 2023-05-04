@@ -96,8 +96,8 @@ public class FatturaService {
 		 return repo.findByCliente(c);		 
 	   }
 	   
-	   public List<Fattura> filtraPerStato(Stato stato){
-		   return repo.findByStato(stato);
+	   public Page<Fattura> filtraPerStato(Stato stato, Pageable pageable){
+		   return repo.findByStato(stato, pageable);
 	   }
 
 }

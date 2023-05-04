@@ -2,6 +2,8 @@ package com.epicbe.gestioneenergia.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -25,5 +27,5 @@ public interface FatturaRepository extends CrudRepository<Fattura, Long>, Paging
 	
 	public List<Fattura> findByCliente(Cliente c);
 	
-	public List<Fattura> findByStato(Stato stato);
+	public Page<Fattura> findByStato(Stato stato, Pageable pageable);
 }
