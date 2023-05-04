@@ -1,6 +1,7 @@
 package com.epicbe.gestioneenergia.service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
@@ -98,6 +99,10 @@ public class FatturaService {
 	   
 	   public Page<Fattura> filtraPerStato(Stato stato, Pageable pageable){
 		   return repo.findByStato(stato, pageable);
+	   }
+	   
+	   public Page<Fattura> filtraPerData(LocalDate data, Pageable pageable){
+		   return repo.findByData(data, pageable);
 	   }
 
 }

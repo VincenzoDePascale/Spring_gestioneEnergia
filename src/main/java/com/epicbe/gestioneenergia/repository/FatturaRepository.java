@@ -1,5 +1,6 @@
 package com.epicbe.gestioneenergia.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -23,9 +24,9 @@ public interface FatturaRepository extends CrudRepository<Fattura, Long>, Paging
 	@Query("SELECT DISTINCT SUM(f.importo) as fatturato, c FROM Fattura f LEFT JOIN Cliente c ON f.cliente = c.id WHERE YEAR(f.data) = :anno GROUP BY c")
 	List<Object> calcolaFatturatoAnnuo(@Param("anno") int anno);
 	
-	//public Fattura findByCliente(Cliente c);
-	
 	public List<Fattura> findByCliente(Cliente c);
 	
 	public Page<Fattura> findByStato(Stato stato, Pageable pageable);
+	
+	public Page<Fattura> findByData(LocalDate data, Pageable pageable);
 }

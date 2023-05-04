@@ -1,5 +1,6 @@
 package com.epicbe.gestioneenergia.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,12 @@ public class FatturaController {
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getByStato(@PathVariable Stato stato, Pageable pageable){
 		return new ResponseEntity<>(service.filtraPerStato(stato, pageable), HttpStatus.OK);
+	}
+	
+	@GetMapping("/data/{data}")	
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<?> getByStato(@PathVariable LocalDate data, Pageable pageable){
+		return new ResponseEntity<>(service.filtraPerData(data, pageable), HttpStatus.OK);
 	}
 	
 	@PostMapping
