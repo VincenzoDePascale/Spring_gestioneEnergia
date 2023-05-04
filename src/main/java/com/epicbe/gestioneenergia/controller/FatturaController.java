@@ -53,13 +53,13 @@ public class FatturaController {
 		return new ResponseEntity<Page<Fattura>>(service.getAllFatturePag(pag), HttpStatus.OK);
 	}
 	
-	@GetMapping("/fatture/{id_cliente}")
+	@GetMapping("/cliente/{id_cliente}")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getByCliente(@PathVariable Long id_cliente){
 		return new ResponseEntity <List <Fattura>>(service.listatoByCliente(id_cliente), HttpStatus.OK);
 	}
 	
-	@GetMapping("/fatture/{stato}")	
+	@GetMapping("/stato/{stato}")	
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getByStato(@PathVariable Stato stato){
 		return new ResponseEntity <List <Fattura>>(service.filtraPerStato(stato), HttpStatus.OK);
