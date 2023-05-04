@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.model.Fattura;
+import com.epicbe.gestioneenergia.repository.ClienteRepository;
 import com.epicbe.gestioneenergia.repository.FatturaRepository;
 
 import jakarta.persistence.EntityExistsException;
@@ -21,6 +22,8 @@ import jakarta.persistence.EntityNotFoundException;
 public class FatturaService {
 	
 	@Autowired FatturaRepository repo;
+	//@Autowired ClienteRepository repoCliente;
+	@Autowired ClienteService servCliente;
 	
 	@Autowired @Qualifier("CreaFatturaFake") private ObjectProvider <Fattura> randomFattureProvider;
 	
@@ -88,9 +91,8 @@ public class FatturaService {
 	   
 	   public List<Fattura> listatoByCliente(Long id) {
 		   //cercare il cliente tramite repocliente e id
-		   //Cliente c = REPOCLIENTE.find
-		 // return (List<Fattura>) repo.findByCliente(c);
-		  return null;
+		   Cliente c = servCliente.getCliente(id);
+		 return repo.findByCliente(c);		 
 	   }
 
 }
