@@ -21,7 +21,7 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long>, Paging
 	
 	public List <Cliente> findByInserimento(LocalDate dataInserimento);
 	
-	@Query(value="SELECT c FROM Cliente c ORDER BY RAND() LIMIT 1")
+	@Query(value="SELECT c FROM Cliente c ORDER BY RANDOM() LIMIT 1")
 	Cliente findByClienteRandom();
 	
 	public List <Cliente> findByUltimocontatto(LocalDate dataUltimo);
