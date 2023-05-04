@@ -32,6 +32,12 @@ public class ClienteController {
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Cliente>>(service.getAllCliente(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/id/{id}")
+	public ResponseEntity<?> getById(@PathVariable("id") Long id) {
+		return new ResponseEntity<>(service.getCliente(id), HttpStatus.OK);
+	}
+	
 	@GetMapping("/inserimento/{data}")
 	public ResponseEntity<?> getclientiPerNumero(@PathVariable LocalDate data){
 		return new ResponseEntity<List<Cliente>>(service.getClientiPerDataInserimento(data), HttpStatus.OK);
@@ -52,8 +58,8 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/partenome/{nome}")
-	public ResponseEntity<?> getclientiPerNomeParte(@PathVariable String parteNome){
-		return new ResponseEntity <List<Cliente>> (service.getAllClientiByName(parteNome), HttpStatus.OK);
+	public ResponseEntity<?> getclientiPerNomeParte(@PathVariable("nome") String nome){
+		return new ResponseEntity<>(service.getAllClientiByName(nome), HttpStatus.OK);
 	}
 	
 	@PostMapping
