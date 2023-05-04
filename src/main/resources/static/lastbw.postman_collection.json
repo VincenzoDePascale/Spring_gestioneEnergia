@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "5d4c285b-8fa0-47da-96e8-6bacd2b1b4e6",
+		"name": "lastbw",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25599729"
+	},
+	"item": [
+		{
+			"name": "register/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"1234vince1\",\n    \"password\": \"123456\",\n    \"email\": \"vin23c@hrhfgn.it\",\n    \"name\": \"vince\",\n    \"surname\": \"maior\",\n    \"roles\": [\"ROLE_ADMIN\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload comuni csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Vincenzo/Desktop/comuni-italiani.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/csv/comuni",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"csv",
+						"comuni"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload province csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Vincenzo/Desktop/province-italiane.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/csv/province",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"csv",
+						"province"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clienti All Page/Sort",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clienti/pageable?size=3&page=1&sort=inserimento",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clienti",
+						"pageable"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "inserimento"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cliente 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clienti/id/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clienti",
+						"id",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cliente Nome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clienti/partenome/lveri",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clienti",
+						"partenome",
+						"lveri"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cliente DataIns",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clienti/inserimento/2021-08-07",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clienti",
+						"inserimento",
+						"2021-08-07"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cliente DataUltimoCont",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clienti/ultimo/contatto/2021-05-02",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clienti",
+						"ultimo",
+						"contatto",
+						"2021-05-02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cliente Fatturato",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clienti/fatturatoannuo/2021",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clienti",
+						"fatturatoannuo",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cliente By Provincia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clienti/prov/tor",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clienti",
+						"prov",
+						"tor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fatture By Stato",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/fatture/stato/EMESSA",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fatture",
+						"stato",
+						"EMESSA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fatture By Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/fatture/data/2020-07-22",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fatture",
+						"data",
+						"2020-07-22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fatture By DataRange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/fatture/data?start=2020-07-01&end=2020-07-23",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fatture",
+						"data"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2020-07-01"
+						},
+						{
+							"key": "end",
+							"value": "2020-07-23"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ2aW4yM2NAaHJoZmduLml0IiwiaWF0IjoxNjgzMjAxMTYxLCJleHAiOjE2ODM1NjExNjF9.64NqP9xiPAFxePhPdPHc89gUTzVN9EZWmda82rGYaReIVTLzRldNbMkx3BxsFCi_",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
