@@ -1,5 +1,6 @@
 package com.epicbe.gestioneenergia.controller;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.epicbe.gestioneenergia.model.Cliente;
@@ -57,8 +59,8 @@ public class ClienteController {
 	
 	@GetMapping("/fatturatoannuo/{anno}")
 	@PreAuthorize("isAuthenticated()")
-	public ResponseEntity<?> getclientiPerFatturatoAnno(@PathVariable int anno){
-		return new ResponseEntity<List<Cliente>>(fatService.calcolaFatturatoAnnuo(anno), HttpStatus.OK);
+	public ResponseEntity<?> getclientiPerFatturatoAnno(@RequestParam int anno){
+		return  new ResponseEntity<List<Cliente>>(service.filtraClientePerFatturatoAnnuo(anno), HttpStatus.OK);
 	}
 	
 	@GetMapping("/pageable")

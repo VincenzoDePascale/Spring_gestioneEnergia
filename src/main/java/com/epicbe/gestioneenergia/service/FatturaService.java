@@ -81,9 +81,5 @@ public class FatturaService {
 		repo.save(fattura);
 		return fattura;
 	}
-	
-	   public List<Cliente> calcolaFatturatoAnnuo(int anno) {
-	        return repo.calcolaFatturatoAnnuo(anno);
-	    }
 
 }

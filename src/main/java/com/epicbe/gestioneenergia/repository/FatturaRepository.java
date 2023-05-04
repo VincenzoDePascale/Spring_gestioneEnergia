@@ -17,7 +17,7 @@ public interface FatturaRepository extends CrudRepository<Fattura, Long>, Paging
 	public Boolean existsByNumero(Integer numero);
 	public Fattura findByAnno(Integer anno);
 	public Boolean existsByAnno(Integer anno);
-	@Query("SELECT SUM(f.importo) FROM Fattura f WHERE YEAR(f.data) = :anno")
-	List<Cliente> calcolaFatturatoAnnuo(@Param("anno") int anno);
+//	@Query("SELECT SUM(f.importo) FROM Fattura f WHERE YEAR(f.data) = :anno")
+//	BigDecimal calcolaFatturatoAnnuo(@Param("anno") int anno);
 	
 }

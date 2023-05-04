@@ -1,5 +1,6 @@
 package com.epicbe.gestioneenergia.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.repository.ClienteRepository;
+import com.epicbe.gestioneenergia.repository.FatturaRepository;
 
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
@@ -21,6 +23,8 @@ public class ClienteService {
 
 	@Autowired ClienteRepository repo;
 	@Autowired @Qualifier("ClienteRandom") private ObjectProvider <Cliente> randomClienteProvider;
+	
+	@Autowired FatturaRepository fatRepo;
 	
 	// Per creare cliente
 	
@@ -93,6 +97,10 @@ public class ClienteService {
 		}
 		repo.save(Cliente);
 		return Cliente;
+	}
+	
+	public List<Cliente> filtraClientePerFatturatoAnnuo( int anno) {
+		return repo.filtraClientiPerFatturatoAnnua(anno);
 	}
 		
 }
