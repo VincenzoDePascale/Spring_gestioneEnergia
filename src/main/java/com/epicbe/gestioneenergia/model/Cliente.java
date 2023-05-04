@@ -55,7 +55,8 @@ public class Cliente {
 	@JsonIgnoreProperties({"cliente"})
 	private List<Indirizzo> indirizzi;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonIgnoreProperties({"cliente"})
 	private List<Fattura> fatture;
 	
 }
