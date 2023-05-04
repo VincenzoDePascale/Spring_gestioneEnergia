@@ -330,6 +330,25 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "API-DOCS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v3/api-docs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v3",
+						"api-docs"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
