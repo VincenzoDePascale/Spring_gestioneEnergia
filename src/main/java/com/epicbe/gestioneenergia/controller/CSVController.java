@@ -16,7 +16,7 @@ import com.epicbe.gestioneenergia.service.CSVService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin(origins =  "*", maxAge = 360000)
 @Controller
 @RequestMapping("/api/csv")
 @Slf4j

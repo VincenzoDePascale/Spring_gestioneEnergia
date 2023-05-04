@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,40 +23,47 @@ import com.epicbe.gestioneenergia.service.FatturaService;
 
 
 
-
+@CrossOrigin(origins =  "*", maxAge = 360000)
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/fatture")
 public class FatturaController {
 	
 	@Autowired FatturaService service;
 	
-	@GetMapping("/fatture")
+	@GetMapping
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Fattura>>(service.getAllFatture(), HttpStatus.OK);
 	}
-	@GetMapping("/fatture/numero/{numero}")
+	@GetMapping("/numero/{numero}")
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getFatturePerNumero(@PathVariable Integer numero){
 		return new ResponseEntity<Fattura>(service.getFatturaPerNumero(numero), HttpStatus.OK);
 	}
-	@GetMapping("/fatture/anno/{anno}")
+	@GetMapping("/anno/{anno}")
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getFatturePerAnno(@PathVariable Integer anno){
 		return new ResponseEntity<Fattura>(service.getFatturaPerAnno(anno), HttpStatus.OK);
 	}
 	
-	@GetMapping("/fatture/pageable")
+	@GetMapping("/pageable")
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<Page<Fattura>> getAllPage(Pageable pag) {
 		return new ResponseEntity<Page<Fattura>>(service.getAllFatturePag(pag), HttpStatus.OK);
 	}
 	
-	@PostMapping("/fatture")
+	@PostMapping
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> createFattura(@RequestBody Fattura fattura) {
 		return new ResponseEntity<Fattura>(service.creaFattura(fattura), HttpStatus.CREATED);
 	}
-	@DeleteMapping("/fatture/{id}")
+	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> deleteFattura(@PathVariable Long id){
 		return new ResponseEntity<String>(service.removeFattura(id), HttpStatus.OK);
 	}
-	@PutMapping("/fatture")
+	@PutMapping
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> updateUser(@RequestBody Fattura fattura) {
 		return new ResponseEntity<Fattura>(service.updateFattura(fattura), HttpStatus.CREATED);
 	}
