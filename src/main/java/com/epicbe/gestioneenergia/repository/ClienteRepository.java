@@ -38,4 +38,8 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long>, Paging
 	
 	@Query("SELECT c FROM Cliente c WHERE LOWER(c.nomeContatto) LIKE LOWER('%' || :name || '%')")
 	public List<Cliente> searchByPartName(String name);
+	
+	@Query("SELECT c FROM Cliente c LEFT JOIN Indirizzo i ON i.cliente = c.id LEFT JOIN Comune co ON i.comune = co.id WHERE LOWER(co.provincia) LIKE LOWER(:provincia || '%')")
+	public List<Cliente> searchByProvincia(String provincia);
+	
 }
