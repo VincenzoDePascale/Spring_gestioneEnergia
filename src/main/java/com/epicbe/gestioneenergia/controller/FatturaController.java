@@ -52,6 +52,12 @@ public class FatturaController {
 		return new ResponseEntity<Page<Fattura>>(service.getAllFatturePag(pag), HttpStatus.OK);
 	}
 	
+	@GetMapping("/cliente/{id_cliente}")
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<?> getByCliente(@PathVariable Long id_cliente){
+		return new ResponseEntity <List <Fattura>>(service.listatoByCliente(id_cliente), HttpStatus.OK);
+	}
+	
 	@PostMapping
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> createFattura(@RequestBody Fattura fattura) {
