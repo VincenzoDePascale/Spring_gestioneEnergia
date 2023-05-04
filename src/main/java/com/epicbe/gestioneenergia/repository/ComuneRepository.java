@@ -20,8 +20,15 @@ extends CrudRepository<Comune, Long>, PagingAndSortingRepository<Comune, Long> {
 	Comune findByNome(String nome);
 	List<Comune> findByProvincia(String provincia);
 	
+<<<<<<< Updated upstream
 	@Query(value="SELECT c FROM Comune c ORDER BY RANDOM() LIMIT 1")
 	Comune findByComuneRandom();
 	
+=======
+	//SELECT c FROM Comune c ORDER BY RAND() LIMIT 1
+	
+		@Query(value = "SELECT c FROM Comune c ORDER BY RAND() LIMIT 1")
+		Comune findByComuneRandom(Comune comune);
+>>>>>>> Stashed changes
 
 }
