@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.epicbe.gestioneenergia.model.Fattura;
+import com.epicbe.gestioneenergia.model.Stato;
 import com.epicbe.gestioneenergia.service.FatturaService;
 
 
@@ -52,10 +53,16 @@ public class FatturaController {
 		return new ResponseEntity<Page<Fattura>>(service.getAllFatturePag(pag), HttpStatus.OK);
 	}
 	
-	@GetMapping("/cliente/{id_cliente}")
+	@GetMapping("/fatture/{id_cliente}")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getByCliente(@PathVariable Long id_cliente){
 		return new ResponseEntity <List <Fattura>>(service.listatoByCliente(id_cliente), HttpStatus.OK);
+	}
+	
+	@GetMapping("/fatture/{stato}")	
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<?> getByStato(@PathVariable Stato stato){
+		return new ResponseEntity <List <Fattura>>(service.filtraPerStato(stato), HttpStatus.OK);
 	}
 	
 	@PostMapping

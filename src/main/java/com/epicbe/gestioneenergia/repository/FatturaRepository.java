@@ -1,6 +1,5 @@
 package com.epicbe.gestioneenergia.repository;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -10,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.model.Fattura;
+import com.epicbe.gestioneenergia.model.Stato;
 
 public interface FatturaRepository extends CrudRepository<Fattura, Long>, PagingAndSortingRepository<Fattura, Long> {
 
@@ -25,4 +25,5 @@ public interface FatturaRepository extends CrudRepository<Fattura, Long>, Paging
 	
 	public List<Fattura> findByCliente(Cliente c);
 	
+	public List<Fattura> findByStato(Stato stato);
 }

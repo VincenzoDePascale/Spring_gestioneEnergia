@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.model.Fattura;
+import com.epicbe.gestioneenergia.model.Stato;
 import com.epicbe.gestioneenergia.repository.ClienteRepository;
 import com.epicbe.gestioneenergia.repository.FatturaRepository;
 
@@ -93,6 +94,10 @@ public class FatturaService {
 		   //cercare il cliente tramite repocliente e id
 		   Cliente c = servCliente.getCliente(id);
 		 return repo.findByCliente(c);		 
+	   }
+	   
+	   public List<Fattura> filtraPerStato(Stato stato){
+		   return repo.findByStato(stato);
 	   }
 
 }
