@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.service.ClienteService;
+import com.epicbe.gestioneenergia.service.FatturaService;
 
 @CrossOrigin(origins =  "*", maxAge = 360000)
 @RestController
@@ -28,6 +29,7 @@ import com.epicbe.gestioneenergia.service.ClienteService;
 public class ClienteController {
 
 	@Autowired ClienteService service;
+	@Autowired FatturaService fatService;
 	
 	@GetMapping
 	@PreAuthorize("isAuthenticated()")
@@ -52,11 +54,12 @@ public class ClienteController {
 	public ResponseEntity<?> getClientiPerUltimoInserimento(@PathVariable LocalDate data){
 		return new ResponseEntity<List<Cliente>>(service.getClientiPerUltimoContatto(data), HttpStatus.OK);
 	}
-//	@GetMapping("/fatturatoannuo/{fatturatoAnnuo}")
-//	@PreAuthorize("isAuthenticated()")
-//	public ResponseEntity<?> getclientiPerFatturatoAnno(@PathVariable double fatturatoAnnuo){
-//		return new ResponseEntity<List<Cliente>>(service.getClientePerFatturatoAnnuo(fatturatoAnnuo), HttpStatus.OK);
-//	}
+	
+	@GetMapping("/fatturatoannuo/{anno}")
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<?> getclientiPerFatturatoAnno(@PathVariable int anno){
+		return new ResponseEntity<List<Cliente>>(fatService.calcolaFatturatoAnnuo(anno), HttpStatus.OK);
+	}
 	
 	@GetMapping("/pageable")
 	@PreAuthorize("isAuthenticated()")

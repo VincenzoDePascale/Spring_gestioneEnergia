@@ -1,5 +1,6 @@
 package com.epicbe.gestioneenergia.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
@@ -9,7 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-
+import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.model.Fattura;
 import com.epicbe.gestioneenergia.repository.FatturaRepository;
 
@@ -80,5 +81,9 @@ public class FatturaService {
 		repo.save(fattura);
 		return fattura;
 	}
+	
+	   public List<Cliente> calcolaFatturatoAnnuo(int anno) {
+	        return repo.calcolaFatturatoAnnuo(anno);
+	    }
 
 }
