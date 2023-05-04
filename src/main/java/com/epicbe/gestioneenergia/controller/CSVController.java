@@ -27,12 +27,33 @@ public class CSVController {
 
   @PostMapping("/comuni")
   @PreAuthorize("hasRole('ADMIN')")
-  public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
+  public ResponseEntity<?> uploadComuni(@RequestParam("file") MultipartFile file) {
     String message = "";
 
     if (CSVHelper.hasCSVFormat(file)) {
       try {
-        fileService.save(file);
+        fileService.saveComuni(file);
+
+        message = "Uploaded the file successfully: " + file.getOriginalFilename();
+        return ResponseEntity.status(HttpStatus.OK).body(new String("uplode complete"));
+      } catch (Exception e) {
+        message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+        return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new String("uplode failed"));
+      }
+    }
+
+    message = "Please upload a csv file!";
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new String("no csv"));
+  }
+  
+  @PostMapping("/province")
+  @PreAuthorize("hasRole('ADMIN')")
+  public ResponseEntity<?> uploadProvince(@RequestParam("file") MultipartFile file) {
+    String message = "";
+
+    if (CSVHelper.hasCSVFormat(file)) {
+      try {
+        fileService.saveProvince(file);
 
         message = "Uploaded the file successfully: " + file.getOriginalFilename();
         return ResponseEntity.status(HttpStatus.OK).body(new String("uplode complete"));
