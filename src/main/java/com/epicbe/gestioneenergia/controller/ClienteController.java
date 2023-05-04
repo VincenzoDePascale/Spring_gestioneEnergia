@@ -61,6 +61,12 @@ public class ClienteController {
 		return new ResponseEntity<List<Object>>(fatService.calcolaFatturatoAnnuo(anno), HttpStatus.OK);
 	}
 	
+	@GetMapping("/prov/{prov}")
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<?> getclientiProvincia(@PathVariable String prov){
+		return new ResponseEntity<List<Cliente>>(service.getClienteByProvincia(prov), HttpStatus.OK);
+	}
+	
 	@GetMapping("/pageable")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<Page<Cliente>> getAllPage(Pageable pag) {

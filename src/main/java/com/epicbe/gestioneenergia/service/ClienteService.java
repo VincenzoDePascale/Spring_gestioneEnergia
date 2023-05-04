@@ -59,6 +59,10 @@ public class ClienteService {
 		return (List<Cliente>) repo.searchByPartName(name);
 	}
 	
+	public List<Cliente> getClienteByProvincia(String name){
+		return (List<Cliente>) repo.searchByProvincia(name);
+	}
+	
 	public Cliente getCliente(Long id) {
 		if(!repo.existsById(id)) {
 			throw new EntityNotFoundException("Cliente not exists!!!");
