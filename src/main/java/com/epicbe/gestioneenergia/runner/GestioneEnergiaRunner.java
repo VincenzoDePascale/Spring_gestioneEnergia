@@ -49,9 +49,9 @@ public class GestioneEnergiaRunner implements ApplicationRunner {
 		//SETTA RUOLI ADMIN/USER IN DB
 		//setRoleDefault();
 		
-		//REGISTRARSI QUI
+		//REGISTRARSI QUI TRAMITE ENDPOINT
 		
-		//IMPORTARE I COMUNI DA CSV QUI
+		//IMPORTARE I COMUNI DA CSV QUI DA POSTMAN
 		
 		//CREA ENTITA DI DEFAULT NEL DB	
 		//starterDB();
