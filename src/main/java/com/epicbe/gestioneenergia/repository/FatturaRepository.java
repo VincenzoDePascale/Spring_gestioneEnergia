@@ -29,4 +29,7 @@ public interface FatturaRepository extends CrudRepository<Fattura, Long>, Paging
 	public Page<Fattura> findByStato(Stato stato, Pageable pageable);
 	
 	public Page<Fattura> findByData(LocalDate data, Pageable pageable);
+	
+	@Query("SELECT f FROM Fattura f WHERE f.data BETWEEN :startDate AND :endDate")
+	public Page<Fattura> searchByDateRange(LocalDate startDate, LocalDate endDate, Pageable pageable);
 }

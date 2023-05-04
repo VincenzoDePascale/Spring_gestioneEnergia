@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.epicbe.gestioneenergia.model.Fattura;
@@ -70,6 +71,12 @@ public class FatturaController {
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getByStato(@PathVariable LocalDate data, Pageable pageable){
 		return new ResponseEntity<>(service.filtraPerData(data, pageable), HttpStatus.OK);
+	}
+	
+	@GetMapping("/data")	
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<?> getByRangeData(@RequestParam("start") LocalDate startDate, @RequestParam("end") LocalDate endDate, Pageable pageable){
+		return new ResponseEntity<>(service.filtraPerRangeData(startDate, endDate, pageable), HttpStatus.OK);
 	}
 	
 	@PostMapping

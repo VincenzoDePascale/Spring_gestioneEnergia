@@ -104,5 +104,9 @@ public class FatturaService {
 	   public Page<Fattura> filtraPerData(LocalDate data, Pageable pageable){
 		   return repo.findByData(data, pageable);
 	   }
+	   
+	   public Page<Fattura> filtraPerRangeData(LocalDate startDate, LocalDate endDate, Pageable pageable){
+		   return repo.searchByDateRange(startDate, endDate, pageable);
+	   }
 
 }
