@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.support.Repositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,54 +21,55 @@ import com.epicbe.gestioneenergia.service.ComuneService;
 
 import lombok.experimental.PackagePrivate;
 
+@CrossOrigin(origins =  "*", maxAge = 360000)
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/comuni")
 public class ComuneController {
 	
 	@Autowired
 	ComuneService service;
 	
-	@GetMapping("/comuni/all")
+	@GetMapping("/all")
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Comune>>(service.getAllComuni(), HttpStatus.OK);
 	}
 	
-	@GetMapping("comuni/{id}")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<?> getById(@PathVariable Long id) {
 		return new ResponseEntity<Comune>(service.findById(id), HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni/codiceComune/{codiceComune}")
+	@GetMapping("/codiceComune/{codiceComune}")
 	public ResponseEntity<?> getByCodiceComune(@PathVariable Long codiceComune) {
 		return new ResponseEntity<Comune>(HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni/nome/{nome}")
+	@GetMapping("/nome/{nome}")
 	public ResponseEntity<?> getByNome(@PathVariable String nome) {
 		return new ResponseEntity<Comune>(service.findByNome(nome), HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni/codiceprov/{codiceProvincia}")
+	@GetMapping("/codiceprov/{codiceProvincia}")
 	public ResponseEntity<?> getByCodiceProvincia(@PathVariable Long codiceProvincia) {
 		return new ResponseEntity<List<Comune>>(service.findByCodiceProvincia(codiceProvincia), HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni/prov/{provincia}")
+	@GetMapping("/prov/{provincia}")
 	public ResponseEntity<?> getByProvincia(@PathVariable String provincia) {
 		return new ResponseEntity<List<Comune>>(service.findByProvincia(provincia), HttpStatus.OK);
 	}
 	
-	@PostMapping("/comuni")
+	@PostMapping
 	public ResponseEntity<?> postNewComune(@RequestBody Comune c) {
 		return new ResponseEntity<>(service.saveComune(c), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/comuni/{id}")
+	@DeleteMapping("/id/{id}")
 	public ResponseEntity<?> deleteComune(@PathVariable Long id) {
 		return new ResponseEntity<String>(service.removeComune(id), HttpStatus.OK);
 	}
 	
-	@PutMapping("/comuni/{id}")
+	@PutMapping("/id/{id}")
 	public ResponseEntity<?> updateComune(@PathVariable Comune comune) {
 		return new ResponseEntity<Comune>(service.updateComune(comune), HttpStatus.OK);
 	}
