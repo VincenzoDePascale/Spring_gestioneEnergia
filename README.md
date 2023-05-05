@@ -37,6 +37,26 @@ Accetta un body in formato JSON con username, password, name, surname, email, ro
 Tutti i campi sono in formato String, ad eccezione dei ROLES che sono un array di stringhe.
 I ruoli disponibili sono "ROLE_ADMIN" e "ROLE_USER".
 
+## Installazione di base veloce:
+
+Importare il DB da DUMPDB.sql contenuto in 'src/main/resources/static'
+
+## Installazione Manuale:
+
+Eseguire in ordine i seguenti passaggi:
+
+- CREARE UN DB su Postgres o MySql
+
+- Avviare il programma SpringBoot (che creerà le entità di default sul DB)
+
+- Eseguire una volta la funzione 'setRoleDefault();' dal Runner (scommentare e riavviare e successivamente ricommentare)
+
+- Eseguire la registrazione come ADMIN tramite l'endpoint (vedi login/register)
+
+- Importare i Comuni tramite CSV, inoltrando il file "comuni" presente in 'src/main/resources/static'
+
+- Eseguire una volta la funzione 'startedDB();' dal Runner (scommentare e riavviare e successivamente ricommentare).
+
 ## CSV IMPORT
 
 E' possibile importare dei CSV contenenti i Comuni o le Province, consulta le API-DOCS all'endpoint "/api/csv"
