@@ -53,6 +53,8 @@ public class GestioneEnergiaRunner implements ApplicationRunner {
 		
 		//IMPORTARE I COMUNI DA CSV QUI DA POSTMAN
 		
+		//IMPORTARE LE PROVINCE DA CSV QUI DA POSTMAN
+		
 		//CREA ENTITA DI DEFAULT NEL DB	
 		//starterDB();
 
