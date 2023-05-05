@@ -72,3 +72,9 @@ Eseguire in ordine i seguenti passaggi:
 ## CSV IMPORT
 
 E' possibile importare dei CSV contenenti i Comuni o le Province, consulta le API-DOCS all'endpoint "/api/csv"
+
+## TESTS
+
+In caso di utilizzo di Eclipse, la suite di test utilizzata è JUnit 5, quindi Jupiter, da importare.
+
+Importare, attraverso le impostazioni di BuildPath, le librerie di Junit5 in ClassPath Modules.
