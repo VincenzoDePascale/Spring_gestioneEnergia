@@ -41,11 +41,15 @@ I ruoli disponibili sono "ROLE_ADMIN" e "ROLE_USER".
 
 Importare il DB da DUMPDB.sql contenuto in 'src/main/resources/static'
 
+Settare il file application.properties in base alle necessità, a partire da application.properties.template
+
 ## Installazione Manuale:
 
 Eseguire in ordine i seguenti passaggi:
 
 - CREARE UN DB su Postgres o MySql
+
+- Settare il file application.properties in base alle necessità, a partire da application.properties.template
 
 - Avviare il programma SpringBoot (che creerà le entità di default sul DB)
 
