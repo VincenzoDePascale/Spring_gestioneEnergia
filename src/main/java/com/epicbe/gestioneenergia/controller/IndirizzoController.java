@@ -44,7 +44,7 @@ public class IndirizzoController {
 	}
 	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> updateUser(@RequestBody Indirizzo indirizzo) {
+	public ResponseEntity<?> updateIndirizzo(@RequestBody Indirizzo indirizzo) {
 		return new ResponseEntity<Indirizzo>(service.updateIndirizzo(indirizzo), HttpStatus.CREATED);
 	}
 	

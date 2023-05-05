@@ -23,7 +23,19 @@ I clienti possono avere più indirizzi e più fatture associate.
 
 ## Documentazione API
 
-La documentazione dell'API è disponibile all'indirizzo "localhost:8080/v3/api-docs". La documentazione è in formato JSON e può essere facilmente visualizzata su Postman.
+La documentazione dell'API è disponibile all'indirizzo "localhost:8080/v3/api-docs".
+Richiede l'autenticazione tramite Token JWT, vedi la sezione LOGIN/REGISTER.
+La documentazione è in formato JSON e può essere facilmente visualizzata su Postman.
+
+## LOGIN/REGISTER
+
+Endpoint Login: POST /api/auth/signin
+Accetta un body in formato JSON con username e password.
+
+Endpoing Register: POST /api/auth/register
+Accetta un body in formato JSON con username, password, name, surname, email, roles.
+Tutti i campi sono in formato String, ad eccezione dei ROLES che sono un array di stringhe.
+I ruoli disponibili sono "ROLE_ADMIN" e "ROLE_USER".
 
 ## CSV IMPORT
 

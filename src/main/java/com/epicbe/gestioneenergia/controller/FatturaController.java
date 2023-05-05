@@ -91,7 +91,7 @@ public class FatturaController {
 	}
 	@PutMapping
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> updateUser(@RequestBody Fattura fattura) {
+	public ResponseEntity<?> updateFattura(@RequestBody Fattura fattura) {
 		return new ResponseEntity<Fattura>(service.updateFattura(fattura), HttpStatus.CREATED);
 	}
 	
