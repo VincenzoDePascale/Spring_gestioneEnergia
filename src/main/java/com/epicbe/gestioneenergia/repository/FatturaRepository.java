@@ -22,7 +22,7 @@ public interface FatturaRepository extends CrudRepository<Fattura, Long>, Paging
 	public Boolean existsByAnno(Integer anno);
 	
 	@Query("SELECT DISTINCT SUM(f.importo) as fatturato, c FROM Fattura f LEFT JOIN Cliente c ON f.cliente = c.id WHERE YEAR(f.data) = :anno GROUP BY c")
-	List<Object> calcolaFatturatoAnnuo(@Param("anno") int anno);
+	Page<Object> calcolaFatturatoAnnuo(@Param("anno") int anno, Pageable pageable);
 	
 	public List<Fattura> findByCliente(Cliente c);
 	

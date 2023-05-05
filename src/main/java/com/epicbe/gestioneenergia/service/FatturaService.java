@@ -87,8 +87,8 @@ public class FatturaService {
 		return fattura;
 	}
 	
-	   public List<Object> calcolaFatturatoAnnuo(int anno) {
-	        return repo.calcolaFatturatoAnnuo(anno);
+	   public Page<Object> calcolaFatturatoAnnuo(int anno, Pageable pageable) {
+	        return repo.calcolaFatturatoAnnuo(anno, pageable);
 	    }
 	   
 	   public List<Fattura> listatoByCliente(Long id) {

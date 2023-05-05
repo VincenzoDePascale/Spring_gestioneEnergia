@@ -57,8 +57,8 @@ public class ClienteController {
 	
 	@GetMapping("/fatturatoannuo/{anno}")
 	@PreAuthorize("isAuthenticated()")
-	public ResponseEntity<?> getclientiPerFatturatoAnno(@PathVariable int anno){
-		return new ResponseEntity<List<Object>>(fatService.calcolaFatturatoAnnuo(anno), HttpStatus.OK);
+	public ResponseEntity<?> getclientiPerFatturatoAnno(@PathVariable int anno, Pageable pageable){
+		return new ResponseEntity<>(fatService.calcolaFatturatoAnnuo(anno, pageable), HttpStatus.OK);
 	}
 	
 	@GetMapping("/prov/{prov}")
