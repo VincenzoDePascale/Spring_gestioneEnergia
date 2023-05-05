@@ -17,6 +17,7 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -110,19 +111,7 @@
       <version>2.1.0</version>
    </dependency>
    
-   <dependency>
-    <groupId>org.hibernate.validator</groupId>
-    <artifactId>hibernate-validator</artifactId>
-    <version>8.0.0.Final</version>
-</dependency>
-
-<dependency>
-		    <groupId>org.junit.platform</groupId>
-		    <artifactId>junit-platform-suite-engine</artifactId>
-		    <version>1.8.1</version>
-		</dependency>   
-
-	</dependencies>
+  	</dependencies>
 
 	<build>
 		<plugins>
